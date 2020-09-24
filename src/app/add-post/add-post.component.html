@@ -1,0 +1,55 @@
+<div class="bg">
+<div class="container">
+    <div>
+        <p class="h4 mb-4" style="color:blue;">Create New Post</p>
+    </div>
+
+    <hr>
+    <form [formGroup]="addpostForm" (ngSubmit)="addPost()">
+        <div class="form-group">
+            <input type="text" id="title" [formControlName]="'title'" placeholder="title" class="form-control mb-2">
+            <div *ngIf="addpostForm.get('title').touched">
+                <label *ngIf="addpostForm.get('title').hasError('required')" style="font-size:16px;color:red;">
+                Title field is required
+                </label>
+
+            </div>    
+        </div>
+
+        <div class="form-group">
+            <editor [formControlName]="'content'" [init]="{
+                height: 500,
+                menubar: false,
+                plugins: [
+                  'advlist autolink lists link image charmap print preview anchor',
+                  'searchreplace visualblocks code fullscreen',
+                  'insertdatetime media table paste code help wordcount'
+                ],
+                toolbar:
+                  'undo redo | formatselect | bold italic backcolor | \
+                  alignleft aligncenter alignright alignjustify | \
+                  bullist numlist outdent indent | removeformat | help'
+              }">
+            </editor>
+            <div *ngIf="addpostForm.get('content').touched">
+               
+                <label *ngIf="addpostForm.get('content').hasError('required')"
+                style="font-size: 16px;color:red;">
+                Field Is Required</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm">
+                <button class="btn btn-primary btn-block " [disabled]="!addpostForm.valid">Publish</button>
+            </div>
+
+            <div class="col-sm">
+                <button class="btn btn-primary btn-block " [disabled]="!addpostForm.valid">Save as Draft</button>
+            </div>
+        </div>
+
+    </form>
+</div>
+</div>
+
