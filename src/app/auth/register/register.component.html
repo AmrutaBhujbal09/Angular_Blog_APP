@@ -2,7 +2,7 @@
 
 <diV class="bg ">
 <diV class=" container d-flex justify-content-center">
-    <form [formGroup]="registerForm">
+    <form [formGroup]="registerForm" class="form-signin form-content-width border border-light  p-5" style="width:50%">
        
         <p class="h4 text-center mt-3 mb-3">Sighn Up</p>
         <div class="container">
@@ -33,21 +33,26 @@
            
             <div class="row">
                 <div class="col-sm-6">
-                    <input type="password" id="password" [formControlName]="'password'" placeholder="Password" class="text-left form-control mb-3">
-                    <label *ngIf="registerForm.get('password').touched && registerForm.get('password').hasError('required')" 
-                    style="font-size:16px;color:red;">Password Field  is required</label>
+                    <input type="password" id="password" [formControlName]="'password'" placeholder="Password" class="text-left form-control mb-3" maxlength="15">
+                    <label *ngIf="registerForm?.get('password')?.touched && registerForm?.get('password')?.hasError('required')" 
+                    class="text-danger warning-messages">Password is required</label>
 
                 </div>
                 <div class="col-sm-6">
-                    <input type="password" id="cpassword" [formControlName]="'cpassword'" placeholder="Confirm Password" class="form-control mb-3">
-                    <label *ngIf="registerForm.get('cpassword').touched && registerForm.get('cpassword').hasError('required')"
-                    style="font-size:16px;color:red;">Confirm Password Field  is required</label>
-
-                  <!--  <div *ngIf="f.cpassword.errors.touched && f.cpassword.invalid" class="alert alert-danger">.</div>
-                    <div *ngIf="f.cpassword.errors.required">cp required</div>
-                    <div *ngIf="f.cpassword.errors.required.confirmedValidator">pasd & cpasd must math</div>-->
+                    <input type="password" id="cpassword" [formControlName]="'cpassword'" placeholder="Confirm Password" class="form-control mb-3" maxlength="15">
+                    <div *ngIf="registerForm?.get('cpassword')?.touched">
+                        <label *ngIf="registerForm?.get('cpassword')?.hasError('required')"
+                        class="text-danger warning-message">Confirm Password is required</label>
+                
+                        <label *ngIf="registerForm?.get('cpassword')?.hasError('mismatch')"
+                        class="text-danger warning-message">Password do not matched</label>
+                    </div>
+                    
+                    
                 </div>
             </div>
+            
+            
             <div>
                 <input type="number" id="cell" [formControlName]="'cell'" placeholder="Cell" class="form-control mb-3">
                 <label *ngIf="registerForm.get('cell').hasError('pattern')" style="font-size:16px;color: red;">Invalid

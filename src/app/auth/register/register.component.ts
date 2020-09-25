@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { CustomValidationService } from './confirm-password.service';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +10,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class RegisterComponent implements OnInit {
   registerForm:FormGroup;
 
-  constructor(private formBuilder:FormBuilder) {
+  constructor(private formBuilder:FormBuilder,private customValidation:CustomValidationService) {
     this.registerForm=this.formBuilder.group({
       fname:['',[Validators.required]],
       lname:['',[Validators.required]],
@@ -19,39 +20,13 @@ export class RegisterComponent implements OnInit {
       password:['',[Validators.required]],
       cpassword:['',[Validators.required]]
     },
-    /*{
-      Validators:ConfirmedValidator('password','cpassword')
-    }*/
-    )}
-  /*get f(){
-  return this.form.controls;  
-  }
-  submit(){
-    console.log(this.form.value);
-  }
-  */
+       {
+         validator:[this.customValidation.confirmedValidator('password','cpassword')]
+       });
+  }   
   ngOnInit(): void {
   }
-  /*
-  export function ConfirmedValidator(controlName:string, matchingControlName:string){
-    return (registerForm:FormGroup) => {
-      const control=registerForm.controls[controlName];
-      const matchingControl=registerForm.controls[matchingControlName];
-      if(matchingControl.errors && !matchingControl.errors.confirmedValidator)
-      {
 
-        return;
 
-      }
-      if(control.value!==matchingControl.value)
-      {
-        matchingControl.setErrors({confirmedValidator:true});
-      }
-      else
-      {
-        matchingControl.setErrors(null);
 
-      }
-    }
-  }*/
 }

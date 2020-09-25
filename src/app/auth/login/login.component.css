@@ -1,7 +1,7 @@
 .bg{
     
-    background-image: url('G:\Full_Stack_Workshop\My-Dream-App\src\assets\image\img12.jfif');
-    background-position: center;
+    background-image: url("G:\Full_Stack_Workshop\My-Dream-App\src\assets\image\img12.jfif");
+    background-position: absolute;
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%; 
