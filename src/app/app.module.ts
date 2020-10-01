@@ -10,6 +10,9 @@ import { RouterModule } from '@angular/router';
 import { RegisterComponent } from './auth/register/register.component';
 import { AddPostComponent } from './add-post/add-post.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
+import { NgxWebstorageModule } from 'ngx-webstorage';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +27,10 @@ import { EditorModule } from '@tinymce/tinymce-angular';
     FormsModule,
     ReactiveFormsModule,
     EditorModule,
+    
+    HttpClientModule,
+    NgxWebstorageModule.forRoot(),
+
     RouterModule.forRoot([
       { path:'login',component:LoginComponent },
       { path:'add-post',component:AddPostComponent},
