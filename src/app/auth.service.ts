@@ -13,13 +13,13 @@ export class AuthService {
   
   
 
-  private baseurl ="http://5ea7d7f9cb51.ngrok.io/api/"; 
+  private baseurl ="http://localhost:8000/"; 
  
   constructor(private httpclient:HttpClient,private localStorageService:LocalStorageService) { }
 
   login(loginPayload:LoginPayload):Observable<boolean> {
     let headers :HttpHeaders = new HttpHeaders({ 'Content-Type':'application/json'});
-    return this.httpclient.post(this.baseurl +'user/login',loginPayload, {headers:headers}).pipe(map(data =>{
+    return this.httpclient.post(this.baseurl +'api/amu/login',loginPayload, {headers:headers}).pipe(map(data =>{
       this.localStorageService.store('loginData',data);
       return true;
   
