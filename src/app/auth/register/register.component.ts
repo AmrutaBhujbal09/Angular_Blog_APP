@@ -39,9 +39,9 @@ export class RegisterComponent implements OnInit {
     password:'',
     first_name:'',
     last_name:'',
-    contact:'',
+    contact_number:'',
     linkedin_url:'',
-    status:'ACTIVE',
+    Status_Choice:'ACTIVE',
     username:'',
     description:''
 
@@ -59,7 +59,7 @@ export class RegisterComponent implements OnInit {
     this.registerPayload.first_name = this.registerForm.get('fname').value;
     this.registerPayload.last_name = this.registerForm.get('lname').value;
     this.registerPayload.password = this.registerForm.get('password').value;
-    this.registerPayload.contact = this.registerForm.get('cell').value;
+    this.registerPayload.contact_number = this.registerForm.get('cell').value;
     this.registerPayload.description = this.registerForm.get('bio').value;
     this.registerPayload.linkedin_url = this.registerForm.get('linkedin').value;
     this.registerPayload.username = this.registerForm.get('username').value;
@@ -71,7 +71,7 @@ export class RegisterComponent implements OnInit {
 
       alert("welcome user  register successfully.now go to login page");
       console.log(data);
-      this.router.navigateByUrl("/register-success");
+      this.router.navigateByUrl("/login");
     } , error => {
       alert('Unsuccessfull');
     });

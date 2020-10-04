@@ -23,7 +23,7 @@ export class AuthService {
   
   login(loginPayload:LoginPayload):Observable<boolean> {
     let headers :HttpHeaders = new HttpHeaders({ 'Content-Type':'application/json'});
-    return this.httpClient.post(this.baseurl +'api/amu/login',loginPayload, {headers:headers}).pipe(map(data =>{
+    return this.httpClient.post(this.baseurl +'api/login',loginPayload, {headers:headers}).pipe(map(data =>{
       this.localStorageService.store('loginData',data);
       return true;
   
@@ -34,7 +34,7 @@ export class AuthService {
   //register api call
   register(registerPayload:RegisterPayload): Observable<any> {
     let headers : HttpHeaders = new HttpHeaders({'Content-Type':'application/JSON'});
-    return this.httpClient.post(this.baseurl + 'api/amu/hello',registerPayload, {headers:headers});
+    return this.httpClient.post(this.baseurl + 'api/signup',registerPayload, {headers:headers});
   }
 
 }
