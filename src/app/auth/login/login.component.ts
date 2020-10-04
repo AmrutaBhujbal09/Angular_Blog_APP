@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/auth.service';
 import { LoginPayload } from '../login-payload';
+import { Router } from '@angular/router';
 
 
 
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
   loginPayload:LoginPayload;
 
 
-  constructor(private formBuilder:FormBuilder,private authService:AuthService) {
+  constructor(private formBuilder:FormBuilder,private authService:AuthService,private router:Router) {
     this.loginForm=this.formBuilder.group({
       email:['',[Validators.required,Validators.email,
         Validators.pattern(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)]],
@@ -40,9 +41,11 @@ export class LoginComponent implements OnInit {
     console.log(this.loginPayload);
 
 
-    this.authService.login(this.loginPayload).subscribe(data =>{
+    this.authService.login(this.loginPayload).subscribe(data => {
       console.log(data);
-      console.log("welcome")
+      console.log("welcome");
+
+    
     } , error =>{
       alert('Unsuccessfull');
     });

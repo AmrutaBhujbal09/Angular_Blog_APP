@@ -17,13 +17,13 @@ export class AuthService {
   private baseurl ="http://localhost:8000/"; 
 
 
-  constructor(private httpclient:HttpClient,private localStorageService:LocalStorageService) { }
+  constructor(private httpClient:HttpClient,private localStorageService:LocalStorageService) { }
   
   //login api call
   
   login(loginPayload:LoginPayload):Observable<boolean> {
     let headers :HttpHeaders = new HttpHeaders({ 'Content-Type':'application/json'});
-    return this.httpclient.post(this.baseurl +'api/amu/login',loginPayload, {headers:headers}).pipe(map(data =>{
+    return this.httpClient.post(this.baseurl +'api/amu/login',loginPayload, {headers:headers}).pipe(map(data =>{
       this.localStorageService.store('loginData',data);
       return true;
   
@@ -34,7 +34,7 @@ export class AuthService {
   //register api call
   register(registerPayload:RegisterPayload): Observable<any> {
     let headers : HttpHeaders = new HttpHeaders({'Content-Type':'application/JSON'});
-    return this.httpclient.post(this.baseurl + 'api/amu/hello',registerPayload, {headers:headers});
+    return this.httpClient.post(this.baseurl + 'api/amu/hello',registerPayload, {headers:headers});
   }
 
 }
