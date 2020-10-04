@@ -1,6 +1,6 @@
 
 <diV class=" container d-flex justify-content-center">
-    <form [formGroup]="registerForm" class="form-signin form-content-width border mt-3  p-8" style="width:40%;border-style:solid;border: width 8px;;border-color:hsla(9,100%, 0%,0);border-radius: 25px; padding: 20px;background:white;">
+    <form [formGroup]="registerForm" class="form-signin form-content-width border mt-3  p-8" style="width:40%;border-style:solid;border: width 8px;border-color:hsla(9,100%, 0%,0);border-radius: 25px; padding: 20px;background:white;" (ngSubmit)="onSubmit()">
        
         <p class="h4 text-center mt-1 mb-3">Sign Up</p>
         <div class="container">
@@ -17,6 +17,13 @@
                     style="font-size:16px;color:red;">Last Name Field  is required</label>
                 </div>
             </div>
+
+            <div class="form-group">
+                <input type="text" id="inputusername" [formControlName]="'username'" placeholder="Username" class="form-control mb-3" autofocus=""> 
+                <label *ngIf="registerForm.get('username').hasError('required')" style="font-size:16px;color:red;">Username Is required
+                </label>
+            </div>
+
             <div class="row">
                 <div class="col-lg-12">
                     <input type="text" id="email" [formControlName]="'email'" placeholder="Email" class="form-control mb-3" autofocus="">
@@ -65,6 +72,12 @@
                 </textarea>
 
             </div>
+
+
+            <div class="form-group">
+                <input type="text" id="url" [formControlName]="'linkedin'" placeholder="LinkedIn Url" class="form-control mb-3" autofocus=""> 
+            </div>
+        
            
             <button class="btn btn-success btn-block mt-4" [disabled]="!registerForm.valid" type="submit">Submit</button> 
            
