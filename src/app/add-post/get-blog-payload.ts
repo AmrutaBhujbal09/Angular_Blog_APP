@@ -1,4 +1,5 @@
 export class GetBlogPayload
 {
-    status:String
+    status:String;
 }
+

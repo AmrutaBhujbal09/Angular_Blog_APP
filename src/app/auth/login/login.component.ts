@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.loginPayload).subscribe(data => {
       console.log(data);
       console.log("welcome");
-      this.router.navigateByUrl("/login");
+      this.router.navigateByUrl("/home");
 
     
     } , error =>{

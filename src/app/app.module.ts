@@ -12,6 +12,9 @@ import { AddPostComponent } from './add-post/add-post.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
+
+
 
 @NgModule({
   declarations: [
@@ -19,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     LoginComponent,
     RegisterComponent,
-    AddPostComponent
+    AddPostComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,8 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule.forRoot([
       { path:'login',component:LoginComponent },
       { path:'add-post',component:AddPostComponent},
-      { path:'register',component:RegisterComponent }
+      { path:'register',component:RegisterComponent },
+      { path:'home',component:HomeComponent}
   
     ])
   ],

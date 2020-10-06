@@ -10,6 +10,8 @@ export class AddPostComponent implements OnInit {
 
   addpostForm:FormGroup;
 
+  
+
   constructor(private formBuilder: FormBuilder) {
     this.addpostForm=this.formBuilder.group({
       title:['',[Validators.required]],
