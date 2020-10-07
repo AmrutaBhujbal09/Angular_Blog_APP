@@ -71,7 +71,7 @@ export class RegisterComponent implements OnInit {
 
       alert("welcome user  register successfully.now go to login page");
       console.log(data);
-      this.router.navigateByUrl("/login");
+      this.router.navigateByUrl("/register-success");
     } , error => {
       alert('Unsuccessfull');
     });

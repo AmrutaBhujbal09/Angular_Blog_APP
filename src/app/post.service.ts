@@ -19,10 +19,19 @@ export class PostService {
     let headers : HttpHeaders = new HttpHeaders({'Content-Type':'application/json'});
     return this.httpClient.post(this.baseUrl + 'api/blog/getBlogList', getBlogPayload , { headers:headers });
   }
+
+
 //save post list
   addPost(postPayload:PostInfoPayload):Observable<any> {
     let headers : HttpHeaders = new HttpHeaders({'Content-Type':'application/json'});
     return this.httpClient.post(this.baseUrl + 'api/blog/createblog',postPayload, { headers:headers });
+
+  }
+
+  //get post by id
+  getPostById(id:number):Observable<any> {
+    let headers : HttpHeaders = new HttpHeaders({'Content-Type':'application/json'});
+    return this.httpClient.post(this.baseUrl + 'api/blog/getBlogDetils' + id , { headers:headers });
 
   }
 }

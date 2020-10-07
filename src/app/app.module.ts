@@ -13,6 +13,9 @@ import { EditorModule } from '@tinymce/tinymce-angular';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
+import { PostComponent } from './post/post.component';
+import { RegisterSuccessComponent } from './register-success/register-success.component';
+
 
 
 
@@ -23,7 +26,9 @@ import { HomeComponent } from './home/home.component';
     LoginComponent,
     RegisterComponent,
     AddPostComponent,
-    HomeComponent
+    HomeComponent,
+    PostComponent,
+    RegisterSuccessComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +44,9 @@ import { HomeComponent } from './home/home.component';
       { path:'login',component:LoginComponent },
       { path:'add-post',component:AddPostComponent},
       { path:'register',component:RegisterComponent },
-      { path:'home',component:HomeComponent}
+      { path:'home',component:HomeComponent},
+      { path:'post/:id',component:PostComponent},
+      { path:'register-success',component:RegisterSuccessComponent }
   
     ])
   ],

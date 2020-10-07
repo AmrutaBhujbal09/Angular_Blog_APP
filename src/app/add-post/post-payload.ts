@@ -2,8 +2,8 @@ export class PostInfoPayload
 {
     contents :String;
     title :String;
-    Status_Choice:String;
+    status:String;
     first_name:String;
     email:String;
-    user_id:String;
+    user_id:number;
 }
