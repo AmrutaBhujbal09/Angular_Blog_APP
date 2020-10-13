@@ -42,29 +42,30 @@ export class UpdateProfileComponent implements OnInit {
     
     
     this.updateprofileForm=this.formBuilder.group({
-      fname:['localData.last_name',[Validators.required]],
-      lname:['localData.first_name',[Validators.required]],
-      cell:['localData.contact_number',[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
-      bio:['localData.description'],
-      linkedin:['localData.linkedin_url'],
-      username:['localData.username',[Validators.required]],
-      email:['localData.email',[Validators.required,Validators.email,Validators.pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)]],
+      fname:[localData.first_name,[Validators.required]],
+      lname:[localData.last_name,[Validators.required]],
+      cell:[localData.contact_number,[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
+      bio:[localData.description],
+      linkedin:[localData.linkedin_url],
+      username:[localData.username,[Validators.required]],
+      email:[localData.email,[Validators.required,Validators.email,Validators.pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)]],
 
   
     });
   }
 
   onSubmit() {
+    //this.updatePayload.id = this.updateprofileForm.get('email').value;
     this.updatePayload.email = this.updateprofileForm.get('email').value;
     this.updatePayload.first_name = this.updateprofileForm.get('fname').value;
     this.updatePayload.last_name = this.updateprofileForm.get('lname').value;
     this.updatePayload.contact_number = this.updateprofileForm.get('cell').value;
     this.updatePayload.description = this.updateprofileForm.get('bio').value;
     this.updatePayload.username = this.updateprofileForm.get('username').value;
-    this.updatePayload.linkedin_url = this.updateprofileForm.get('linkedin').value;
+   this.updatePayload.linkedin_url = this.updateprofileForm.get('linkedin').value;
     //this.updatePayload.description = this.updateprofileForm.get('description').value;
 
-
+      console.log(this.updatePayload.username);
 
     this.authService.updateProfile(this.updatePayload,this.id).subscribe(data => {
       alert("User updated successfully")
