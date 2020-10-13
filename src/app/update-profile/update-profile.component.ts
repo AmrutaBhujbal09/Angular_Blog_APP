@@ -56,13 +56,13 @@ export class UpdateProfileComponent implements OnInit {
 
   onSubmit() {
     this.updatePayload.email = this.updateprofileForm.get('email').value;
-    this.updatePayload.first_name = this.updateprofileForm.get('first_name').value;
-    this.updatePayload.last_name = this.updateprofileForm.get('last_name').value;
-    this.updatePayload.contact_number = this.updateprofileForm.get('contact_number').value;
-    this.updatePayload.description = this.updateprofileForm.get('description').value;
+    this.updatePayload.first_name = this.updateprofileForm.get('fname').value;
+    this.updatePayload.last_name = this.updateprofileForm.get('lname').value;
+    this.updatePayload.contact_number = this.updateprofileForm.get('cell').value;
+    this.updatePayload.description = this.updateprofileForm.get('bio').value;
     this.updatePayload.username = this.updateprofileForm.get('username').value;
-    this.updatePayload.linkedin_url = this.updateprofileForm.get('linkedin_url').value;
-    this.updatePayload.description = this.updateprofileForm.get('description').value;
+    this.updatePayload.linkedin_url = this.updateprofileForm.get('linkedin').value;
+    //this.updatePayload.description = this.updateprofileForm.get('description').value;
 
 
 
