@@ -3,10 +3,10 @@
         <div>
             <br>
             <h3>
-                {{posts.title}}
+                {{posts[0].title}}
             </h3>
-            <p [innerHTML]="posts.contents"></p>
-            <em class ="author"><strong>Author:</strong> {{posts.first_name}} | {{posts.email}}</em>
+            <p [innerHTML]="posts[0].contents"></p>
+            <em class ="author"><strong>Author:</strong> {{posts[0].first_name}} | {{posts[0].email}}</em>
             <hr>
         </div>
     </div>

@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { PostComponent } from './post/post.component';
 import { RegisterSuccessComponent } from './register-success/register-success.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
 
 
@@ -28,7 +29,8 @@ import { RegisterSuccessComponent } from './register-success/register-success.co
     AddPostComponent,
     HomeComponent,
     PostComponent,
-    RegisterSuccessComponent
+    RegisterSuccessComponent,
+    UpdateProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,8 @@ import { RegisterSuccessComponent } from './register-success/register-success.co
       { path:'register',component:RegisterComponent },
       { path:'home',component:HomeComponent},
       { path:'post/:id',component:PostComponent},
-      { path:'register-success',component:RegisterSuccessComponent }
+      { path:'register-success',component:RegisterSuccessComponent },
+      { path:'update-profile',component:UpdateProfileComponent}
   
     ])
   ],

@@ -50,4 +50,12 @@ export class AuthService {
     this.localStorageService.clear('loginData');
   }
 
+
+  //Update user profile
+  updateProfile(updatePayload,id:Number):Observable<any> {
+    let headers : HttpHeaders = new HttpHeaders({'Content-Type':'application/json' });
+    return this.httpClient.patch(this.baseurl + 'api/patchUser' + id ,{headers:headers});
+    
+  }
+
 }
