@@ -65,8 +65,6 @@ export class UpdateProfileComponent implements OnInit {
    this.updatePayload.linkedin_url = this.updateprofileForm.get('linkedin').value;
     //this.updatePayload.description = this.updateprofileForm.get('description').value;
 
-      console.log(this.updatePayload.username);
-
     this.authService.updateProfile(this.updatePayload,this.id).subscribe(data => {
       alert("User updated successfully")
       console.log("welcome");

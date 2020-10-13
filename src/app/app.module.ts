@@ -16,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { PostComponent } from './post/post.component';
 import { RegisterSuccessComponent } from './register-success/register-success.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
+import { DraftComponent } from './draft/draft.component';
 
 
 
@@ -30,7 +31,8 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
     HomeComponent,
     PostComponent,
     RegisterSuccessComponent,
-    UpdateProfileComponent
+    UpdateProfileComponent,
+    DraftComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +51,8 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
       { path:'home',component:HomeComponent},
       { path:'post/:id',component:PostComponent},
       { path:'register-success',component:RegisterSuccessComponent },
-      { path:'update-profile',component:UpdateProfileComponent}
+      { path:'update-profile',component:UpdateProfileComponent},
+      { path:'draft',component:DraftComponent}
   
     ])
   ],

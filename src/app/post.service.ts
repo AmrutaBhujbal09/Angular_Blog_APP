@@ -34,5 +34,14 @@ export class PostService {
     return this.httpClient.post(this.baseUrl + 'api/blog/getBlogDetils' + id , { headers:headers });
 
   }
+
+  //save post list
+
+  publishBlog(id:Number,publishBlogPayload: GetBlogPayload): Observable<any> 
+  {
+    let headers :HttpHeaders = new HttpHeaders({'Content-Type':'appliaction/json'});
+    return this.httpClient.patch(this.baseUrl + 'blog/patchBlog/' + id ,publishBlogPayload ,  {headers:headers });
+  }
+    
 }
 

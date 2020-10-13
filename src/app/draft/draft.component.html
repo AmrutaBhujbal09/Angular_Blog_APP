@@ -1,0 +1,17 @@
+<div class="content">
+    <div class="container">
+        <p>welcome home.html</p>
+        <div class="row" *ngFor="let Blog of posts">
+            <div>
+                <br>
+                <h3>{{Blog.title}}</h3>
+                 <p [innerHTML] = "Blog.contents"></p>
+                <em class="author"><strong>Author</strong> {{Blog.first_name}}  | {{Blog.email}} </em>
+                <div>
+                    <a type ="button" href="/post/{{Blog.id}}" class="read-more"><u><em>Read More</em></u></a>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+</div>
