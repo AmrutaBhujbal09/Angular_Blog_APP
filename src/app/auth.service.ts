@@ -58,4 +58,12 @@ export class AuthService {
     
   }
 
+  //delete user
+
+  deleteUser(id:Number)
+  {
+    let headers: HttpHeaders = new HttpHeaders({'Content-Type':'application/json'});
+    return this.httpClient.delete(this.baseurl + 'api/deleteUser/' + id ,{ headers : headers});
+  }
+
 }
